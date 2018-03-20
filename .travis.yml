@@ -1,0 +1,42 @@
+language: node_js
+node_js:
+ - '6'
+
+# 缓存依赖，节省持续集成时间
+cache:
+  directories:
+  - node_modules
+  - themes
+
+before_install:
+  # 解密 RSA 私钥并设置为本机 ssh 私钥
+  - echo $DEPLOY_KEY_ENC | base64 --decode | openssl aes-256-cbc -K $encrypted_2b3e21bfee09_key -iv $encrypted_2b3e21bfee09_iv -out ~/.ssh/id_rsa -d
+  - chmod 0600 ~/.ssh/id_rsa
+
+install:
+  - git clone --branch master https://${REMOTE_REP} .deploy_git
+  # 安装/更新 Hexo 及其依赖
+  - npm update
+
+before_script:
+  # 更改时区
+  - export TZ='Asia/Shanghai'
+  - git config --global user.name $NAME
+  - git config --global user.email $EMAIL
+
+script:
+  # 生成静态页面
+  - hexo generate
+
+after_success:
+  # 部署到 GitHub Pages
+  - hexo deploy
+
+# 只监听 raw 分支的改动
+branches:
+  only:
+  - raw
+
+addons:
+  ssh_known_hosts:
+  - github.com
