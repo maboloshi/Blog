@@ -1,0 +1,16 @@
+image: node:latest
+pages:
+  cache:
+    paths:
+    - node_modules/
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - npm update
+    - export TZ='Asia/Shanghai'
+    - ./node_modules/.bin/hexo generate
+  artifacts:
+    paths:
+    - public
+  only:
+  - raw
