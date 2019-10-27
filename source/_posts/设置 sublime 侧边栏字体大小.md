@@ -1,0 +1,40 @@
+---
+title: 设置 sublime 侧边栏字体大小
+date: 2019-10-27 21:49:05
+description:
+categories:
+tags:
+toc: true
+author:
+comments:
+original:
+permalink:
+---
+1. 确认当前使用的主题
+首选项 > 设置 > "theme"值, 比如`Adaptive.sublime-theme`
+
+2. 在用户设置目录(`插件目录/User`)下创建同名文件`Adaptive.sublime-theme`
+
+> 原理:自定义设置覆盖默认设置
+
+```json
+{
+    "rules":
+    [
+        {   //侧边栏字体大小
+            "class": "sidebar_label",
+            "font.size": 14
+        },
+//        {   //侧边栏行间距
+//            "class": "sidebar_tree",
+//            "row_padding": [16, 3, 4, 3],
+//        },
+//        {   //修改文档标题字体大小
+//            "class": "tab_label",
+//            "font.size": 14
+//        },
+    ]
+}
+```
+
+更多设置，可参考原主题文件
