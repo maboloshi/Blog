@@ -32,10 +32,10 @@ after_success:
   # 部署到 GitHub Pages
   - hexo deploy
 
-# 只监听 raw 分支的改动
+# 只监听 hexo 分支的改动
 branches:
   only:
-  - raw
+  - hexo
 
 addons:
   ssh_known_hosts:
