@@ -1,0 +1,63 @@
+---
+title: Download a single file from a private GitHub repo #文章标题
+date: 2019-11-02 18:28:19  #写作时间
+description: #文章描述
+categories: #文章分类
+tags: #文章标签
+toc: true # 生成目录
+author:
+comments:
+original:
+permalink: #指定链接
+---
+
+
+### Relying on basic authentication
+```sh
+#
+#依靠基本身份验证从github企业获取原始内容的单一代码。
+#无需创建访问令牌并将其合并到url中。
+#
+#
+#填空：
+#
+#USER              您用于验证的登录用户名（将在终端上提示您输入密码）
+#GHE_DOMAIN github 企业自定义域
+#REPO_OWNER        拥有存储库的用户/组织
+#REPO_NAME         资料库的名称
+#REF               git ref，例如分支或提交（大多数情况下，您可能希望使用“ master”）
+#FILE              要获取的文件的路径，包括文件扩展名。 也用作本地创建文件的名称
+#OAUTH-TOKEN      二步验证码
+
+curl -u "${USER}" -O https://${GHE_DOMAIN}/raw/${REPO_OWNER}/${REPO_NAME}/${REF}/${FILE}
+```
+> 参考：
+> - [Download a single file from a private GitHub repo](https://gist.github.com/madrobby/9476733)
+
+#### Accessing GitHub using two-factor authentication
+
+```sh
+curl -u "${USER}" -H "X-GitHub-OTP: ${OTPCODE}" -O https://${GHE_DOMAIN}/raw/${REPO_OWNER}/${REPO_NAME}/${REF}/${FILE}
+```
+
+### Relying on OAuth2 token authentication
+
+You'll need an access token as described in this GitHub Help article: https://help.github.com/articles/creating-an-access-token-for-command-line-use
+
+#### 作为`url`中的参数明文传输
+
+```sh
+curl -O https://${OAUTH-TOKEN}@${GHE_DOMAIN}/raw/${REPO_OWNER}/${REPO_NAME}/${REF}/${FILE}
+```
+
+#### 作为`header`中的参数传输
+
+```sh
+curl -H "Authorization: token ${OAUTH-TOKEN}" -O https://${GHE_DOMAIN}/raw/${REPO_OWNER}/${REPO_NAME}/${REF}/${FILE}
+```
+
+### Relying on SSH certificate authentication
+```sh
+scp [-i identity_file] ${USER}@${GHE_DOMAIN}:${REPO_OWNER}/${REPO_NAME}.git/${REF}/${FILE}  /path/to/local/file
+```
+> `identity_file`: 验证私钥文件
