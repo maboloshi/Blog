@@ -1,0 +1,134 @@
+// Custom styles.
+////https://github.com/SimGuo/SimGuo.github.io/blob/master/css/main.css
+body {
+  background: url("/img/0000/4.jpg") fixed;
+}
+.headband {
+  height: 0px;
+  background: #6a8a82;
+}
+.site-meta {
+//  -webkit-border-image: url("/img/0000/f3.png");
+  background: rgba(65,89,57,0.59);
+}
+.site-subtitle {
+  color: #eee;
+}
+//.sidebar {
+//  background: url("/img/0000/sidebar3.jpg");
+//  background-size: 100% auto;
+//}
+.sidebar-inner.affix {
+  position: fixed;
+  top: 0px;
+  box-shadow: 0 2px 6px #dbdbdb;
+}
+//.sidebar-inner {
+//  background: url("/img/0000/sidebar2.png");
+//  background-size: 100% auto;
+//}
+//.header-inner {
+//  background: url("/img/0000/sidebar2.png");
+//  background-size: 100% auto;
+//}
+.content-wrap {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 6px #dbdbdb;
+}
+////////alert 框来自bootstrap.css
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.alert .alert-link {
+  font-weight: bold;
+}
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+.alert > p + p {
+  margin-top: 5px;
+}
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 35px;
+}
+.alert-dismissable .close,
+.alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.alert-success hr {
+  border-top-color: #c9e2b3;
+}
+.alert-success .alert-link {
+  color: #2b542c;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-info hr {
+  border-top-color: #a6e1ec;
+}
+.alert-info .alert-link {
+  color: #245269;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+.alert-warning .alert-link {
+  color: #66512c;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-danger hr {
+  border-top-color: #e4b9c0;
+}
+.alert-danger .alert-link {
+  color: #843534;
+}
+////////alert 框来自bootstrap.css
+////////To Do List//////////////// 
+input[type="checkbox"] {
+  display: none !important; // by imo: to overwrite styles in DuoShuo-Comments-Plugin
+}
+input[type="checkbox"] + label::before {//方框
+  content: '\a0';
+  display: inline-block;
+  margin-right: .2em;
+  border: 1px solid;
+  border-radius: .2em; //圆角度
+  width: .8em;
+  height: .8em;
+  vertical-align: .1em; //基线
+  text-indent: .1em;
+  line-height: .7;
+}
+input[type="checkbox"]:checked + label::before {
+  content: '\2713';
+}
+////////To Do List//////////////// 
