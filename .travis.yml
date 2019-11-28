@@ -14,9 +14,9 @@ before_install:
   - chmod 0600 ~/.ssh/id_rsa
 
 install:
-  - git clone --branch master https://${REMOTE_REP} .deploy_git
+  # - git clone --branch master https://${REMOTE_REP} .deploy_git
   # 安装/更新 Hexo 及其依赖
-  - npm update
+  - npm install
 
 before_script:
   # 更改时区
