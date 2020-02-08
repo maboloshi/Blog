@@ -517,7 +517,7 @@ math:
 
   # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) required for full Katex support.
   katex:
-    enable: false
+    enable: true
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex: false
 
@@ -590,7 +590,7 @@ comments:
 
 # Disqus
 disqus:
-  enable: true
+  enable: false
   shortname: maboloshi-github
   count: true
   lazyload: true
