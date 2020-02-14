@@ -13,12 +13,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
         with:
+          ref: hexo
           submodules: true
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v1.1.2
         with:
           path: node_modules
-          key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+          key: ${{runner.OS}}-node-${{hashFiles('**/package-lock.json')}}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - uses: yrpang/github-actions-hexo@master
         with:
           deploykey: ${{secrets.DEPLOY_KEY}}
