@@ -4,6 +4,9 @@ on:
   push:
       branches:
       - hexo
+      paths:
+      - 'source/**'
+      - '_config.yml'
 
 jobs:
   build:
