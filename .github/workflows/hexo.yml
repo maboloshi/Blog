@@ -24,6 +24,6 @@ jobs:
             ${{ runner.os }}-node-
       - uses: yrpang/github-actions-hexo@master
         with:
-          deploykey: ${{ secrets.GITHUB_TOKEN }}
+          deploykey: ${{secrets.DEPLOY_KEY}}
           username: github-actions[bot]
           email: 41898282+github-actions[bot]@users.noreply.github.com
