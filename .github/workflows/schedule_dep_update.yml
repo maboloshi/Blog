@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@master
     - uses: taichi/actions-package-update@master
       env:
-        AUTHOR_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
-        AUTHOR_NAME: "github-actions[bot]"
+        AUTHOR_EMAIL: 7850715+maboloshi@users.noreply.github.com
+        AUTHOR_NAME: maboloshi
         EXECUTE: "true"
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         LOG_LEVEL: debug
