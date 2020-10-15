@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://blog.motreen.ml').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="以前使用 Travis CI 自动部署Hexo博客，但是，Travis CI 免费账户的速度不算太快。这次，使用 Github 自带的Actions功能，实现自动部署。实测后部署速度的确更快。  GitHub Actions 由 GitHub 官方推出的工作流工具。典型的应用场景应该是 CI&#x2F;CD，类似 Travis 的用法。   项目背景 我的博客源码和静态文件存放在一个 github 项目中的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Actions自动部署Hexo博客">
+<meta property="og:url" content="https://blog.motreen.ml/posts/35722/index.html">
+<meta property="og:site_name" content="春">
+<meta property="og:description" content="以前使用 Travis CI 自动部署Hexo博客，但是，Travis CI 免费账户的速度不算太快。这次，使用 Github 自带的Actions功能，实现自动部署。实测后部署速度的确更快。  GitHub Actions 由 GitHub 官方推出的工作流工具。典型的应用场景应该是 CI&#x2F;CD，类似 Travis 的用法。   项目背景 我的博客源码和静态文件存放在一个 github 项目中的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-08T08:40:37.000Z">
+<meta property="article:modified_time" content="2020-10-15T09:00:26.078Z">
+<meta property="article:author" content="沙漠之子">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.motreen.ml/posts/35722/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>GitHub Actions自动部署Hexo博客 | 春</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="春" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">春</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.motreen.ml/posts/35722/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="沙漠之子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GitHub Actions自动部署Hexo博客
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-08 16:40:37" itemprop="dateCreated datePublished" datetime="2020-02-08T16:40:37+08:00">2020-02-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-15 17:00:26" itemprop="dateModified" datetime="2020-10-15T17:00:26+08:00">2020-10-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>以前使用 Travis CI 自动部署Hexo博客，但是，Travis CI 免费账户的速度不算太快。这次，使用 Github 自带的Actions功能，实现自动部署。实测后部署速度的确更快。</p>
+<blockquote>
+<p>GitHub Actions 由 GitHub 官方推出的工作流工具。典型的应用场景应该是 CI/CD，类似 Travis 的用法。</p>
+</blockquote>
+<h2 id="项目背景"><a class="markdownIt-Anchor" href="#项目背景"></a> 项目背景</h2>
+<p>我的博客源码和静态文件存放在一个 github 项目中的两个独立分支。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分支</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hexo</td>
+<td style="text-align:left">原始数据及配置</td>
+</tr>
+<tr>
+<td style="text-align:center">master</td>
+<td style="text-align:left">静态页面</td>
+</tr>
+</tbody>
+</table>
+<h2 id="项目设置"><a class="markdownIt-Anchor" href="#项目设置"></a> 项目设置</h2>
+<h3 id="生成密钥对"><a class="markdownIt-Anchor" href="#生成密钥对"></a> 生成密钥对</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span> -N <span class="string">""</span> -f deploy_key</span><br></pre></td></tr></table></figure>
+<p>会生成 <code>deploy_key</code>私钥 和 <code>deploy_key.pub</code>公钥两个文件。</p>
+<h3 id="添加公钥"><a class="markdownIt-Anchor" href="#添加公钥"></a> 添加公钥</h3>
+<p>项目页 --&gt; <code>Settings</code> --&gt; <code>Deploy keys</code> --&gt; <code>Add deploy key</code></p>
+<p>将<code>deploy_key.pub</code>公钥内容复制上去，勾选：Allow write access</p>
+<h3 id="添加加密环境变量"><a class="markdownIt-Anchor" href="#添加加密环境变量"></a> 添加加密环境变量</h3>
+<p>项目页 --&gt; <code>Settings</code> --&gt; <code>Secrets</code> --&gt; <code>Add a new secret</code></p>
+<blockquote>
+<p>环境变量名可以任意命名，但要和Actions里的设定$对应</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">环境变量</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">DEPLOY_KEY</td>
+<td style="text-align:left">发布key 私钥，<code>deploy_key</code>私钥文件内容</td>
+</tr>
+<tr>
+<td style="text-align:center">EMAIL</td>
+<td style="text-align:left">发布用户邮箱账号</td>
+</tr>
+<tr>
+<td style="text-align:center">NAME</td>
+<td style="text-align:left">发布用户名</td>
+</tr>
+</tbody>
+</table>
+<h3 id="修改_configyml"><a class="markdownIt-Anchor" href="#修改_configyml"></a> 修改<code>_config.yml</code></h3>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:maboloshi/Blog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">"Github CI Auto Builder at <span class="template-variable">&#123;&#123; now('YYYY-MM-DD HH:mm:ss Z') &#125;&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>repo</code>链接必须使用 ssh 格式</p>
+</blockquote>
+<h2 id="编写-action-脚本"><a class="markdownIt-Anchor" href="#编写-action-脚本"></a> 编写 Action 脚本</h2>
+<blockquote>
+<p>此处使用<a href="https://github.com/yrpang/github-actions-hexo" target="_blank" rel="noopener">成熟方案</a></p>
+</blockquote>
+<p>在根目录下创建 <code>GitHub Actions workflow</code> 文件，<code>.github/workflows/hexo.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Hexo</span> <span class="string">CICD</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span> <span class="comment"># 监视 `hexo`分支</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">      <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">hexo</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">if:</span> <span class="string">"!contains(github.event.head_commit.message, '[ci skip]')"</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">submodules:</span> <span class="literal">true</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">node</span> <span class="string">modules</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;runner.OS&#125;&#125;-$&#123;&#123;hashFiles('**/package-lock.json')&#125;&#125;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">yrpang/github-actions-hexo@master</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">deploykey:</span> <span class="string">$&#123;&#123;secrets.DEPLOY_KEY&#125;&#125;</span></span><br><span class="line">          <span class="attr">username:</span> <span class="string">$&#123;&#123;secrets.NAME&#125;&#125;</span></span><br><span class="line">          <span class="attr">email:</span> <span class="string">$&#123;&#123;secrets.EMAIL&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意:</p>
+<ol>
+<li>根目录下<code>.gitignore</code>中需要移除<code>package-lock.json</code></li>
+<li>静态页面是强制推送，覆盖历史数据</li>
+</ol>
+</blockquote>
+<h2 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h2>
+<p><code>GitHub Actions</code>将自动监视<code>hexo</code>分支，并对任何除带<code>[ci skip]</code>的 push 触发执行。</p>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
+<ul>
+<li><a href="https://github.com/yrpang/github-actions-hexo" target="_blank" rel="noopener">https://github.com/yrpang/github-actions-hexo</a></li>
+<li><a href="https://hdj.me/github-actions-hexo-cicd/" target="_blank" rel="noopener">https://hdj.me/github-actions-hexo-cicd/</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/github/" rel="tag"># github</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/53428/" rel="prev" title="Download a single file from a private GitHub repo">
+      <i class="fa fa-chevron-left"></i> Download a single file from a private GitHub repo
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/49934/" rel="next" title="使用aria2下载视频文件">
+      使用aria2下载视频文件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  
+  <div class="comments">
+  <script src="https://utteranc.es/client.js" repo="maboloshi/Blog" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目背景"><span class="nav-number">1.</span> <span class="nav-text"> 项目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目设置"><span class="nav-number">2.</span> <span class="nav-text"> 项目设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成密钥对"><span class="nav-number">2.1.</span> <span class="nav-text"> 生成密钥对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加公钥"><span class="nav-number">2.2.</span> <span class="nav-text"> 添加公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加加密环境变量"><span class="nav-number">2.3.</span> <span class="nav-text"> 添加加密环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改_configyml"><span class="nav-number">2.4.</span> <span class="nav-text"> 修改_config.yml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写-action-脚本"><span class="nav-number">3.</span> <span class="nav-text"> 编写 Action 脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text"> 小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text"> 参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">沙漠之子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/maboloshi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;maboloshi" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">沙漠之子</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
