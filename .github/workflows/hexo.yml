@@ -27,9 +27,8 @@ jobs:
           key: ${{runner.OS}}-node-${{hashFiles('**/package-lock.json')}}
           restore-keys: |
             ${{ runner.os }}-node-
-      - uses: yrpang/github-actions-hexo@master
+      - uses: maboloshi/github-actions-hexo@dev
         with:
           deploykey: ${{secrets.DEPLOY_KEY}}
-          username: github-actions[bot]
-          email: 41898282+github-actions[bot]@users.noreply.github.com
           if_keep_commit_history: true
+          github_page_repository: Blog
