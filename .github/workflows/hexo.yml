@@ -27,6 +27,6 @@ jobs:
           key: ${{runner.OS}}-node-${{hashFiles('**/package-lock.json')}}
           restore-keys: |
             ${{ runner.os }}-node-
-      - uses: maboloshi/hexo-action@master
+      - uses: maboloshi/hexo-action@patch-1
         with:
           deploy_key: ${{secrets.DEPLOY_KEY}}
