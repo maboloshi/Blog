@@ -27,8 +27,6 @@ jobs:
           key: ${{runner.OS}}-node-${{hashFiles('**/package-lock.json')}}
           restore-keys: |
             ${{ runner.os }}-node-
-      - uses: maboloshi/github-actions-hexo@dev
+      - uses: sma11black/hexo-action@master
         with:
-          deploykey: ${{secrets.DEPLOY_KEY}}
-          if_keep_commit_history: true
-          github_page_repository: Blog
+          deploy_key: ${{secrets.DEPLOY_KEY}}
