@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -56,7 +56,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/7850715/74332438-9c865c00-4d8d-11ea-998f-65ed6d71e799.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/7850715/74332429-998b6b80-4d8d-11ea-80ae-807bbcac1c42.png">
 <meta property="article:published_time" content="2020-02-12T12:00:13.000Z">
-<meta property="article:modified_time" content="2020-10-16T02:04:52.282Z">
+<meta property="article:modified_time" content="2020-12-30T07:26:05.078Z">
 <meta property="article:author" content="沙漠之子">
 <meta property="article:tag" content="aria2">
 <meta property="article:tag" content="ffmpeg">
@@ -217,7 +217,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-16 10:04:52" itemprop="dateModified" datetime="2020-10-16T10:04:52+08:00">2020-10-16</time>
+                <time title="修改时间：2020-12-30 15:26:05" itemprop="dateModified" datetime="2020-12-30T15:26:05+08:00">2020-12-30</time>
               </span>
 
           
@@ -255,9 +255,9 @@
 <img src="https://user-images.githubusercontent.com/7850715/74332429-998b6b80-4d8d-11ea-80ae-807bbcac1c42.png" alt="获取RequestHeaders 参数" /></p>
 <h3 id="获取ts文件下载链接"><a class="markdownIt-Anchor" href="#获取ts文件下载链接"></a> 获取ts文件下载链接</h3>
 <p>使用文本编辑器打开<code>m3u8列表文件</code>，删除<code>#</code>开头的行, 并补全<code>ts文件</code>下载链接复制备用，也可另存为列表文件**<code>list.txt</code><strong>，原<code>m3u8列表文件</code>在后续的文件解密合并时还需用到，也可重命名为</strong><code>index.m3u8</code>**。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-KEY:METHOD&#x3D;QINIU-PROTECTION-10,IV&#x3D;0x613694b311fb436b16f58b8c8f741ca2</span><br><span class="line">#EXTINF:16.733333,</span><br><span class="line">&#x2F;5t2z9mIR2ZKG20c7w5PeHsrDNjA&#x3D;&#x2F;lqn2o_WGxPIjDV_idXAR9c-q6DFM&#x2F;000000.ts</span><br><span class="line">#EXT-X-KEY:METHOD&#x3D;QINIU-PROTECTION-10,IV&#x3D;0x005825f743583155e78af94c6c364190</span><br><span class="line">#EXTINF:3.666667,</span><br><span class="line">&#x2F;5t2z9mIR2ZKG20c7w5PeHsrDNjA&#x3D;&#x2F;lqn2o_WGxPIjDV_idXAR9c-q6DFM&#x2F;000001.ts</span><br><span class="line">#EXT-X-KEY:METHOD&#x3D;QINIU-PROTECTION-10,IV&#x3D;0xb8941ace1e79b5c0acf7d81ec3924226</span><br><span class="line">#EXTINF:17.866667,</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x613694b311fb436b16f58b8c8f741ca2</span><br><span class="line">#EXTINF:16.733333,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x005825f743583155e78af94c6c364190</span><br><span class="line">#EXTINF:3.666667,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0xb8941ace1e79b5c0acf7d81ec3924226</span><br><span class="line">#EXTINF:17.866667,</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
 <p>补全整理后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;xxxx&#x2F;xxxx&#x2F;5t2z9mIR2ZKG20c7w5PeHsrDNjA&#x3D;&#x2F;lqn2o_WGxPIjDV_idXAR9c-q6DFM&#x2F;000000.ts</span><br><span class="line">https:&#x2F;&#x2F;xxxx&#x2F;xxxx&#x2F;5t2z9mIR2ZKG20c7w5PeHsrDNjA&#x3D;&#x2F;lqn2o_WGxPIjDV_idXAR9c-q6DFM&#x2F;000001.ts</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>列表文件中存在类似信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#EXT-X-KEY:METHOD&#x3D;AES-128,URI&#x3D;&quot;https:&#x2F;&#x2F;.....&quot;</span><br></pre></td></tr></table></figure>
@@ -265,15 +265,15 @@
 </blockquote>
 <h2 id="使用-aria2c-命令行下载"><a class="markdownIt-Anchor" href="#使用-aria2c-命令行下载"></a> 使用 Aria2c 命令行下载</h2>
 <p>命令参数格式如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -c -s10 -k1M -x16 --<span class="built_in">enable</span>-rpc=<span class="literal">false</span> -o <span class="string">'要保存的文件名'</span> --user-agent=<span class="string">"&lt;User-Agent内容&gt;"</span> --referer=<span class="string">"&lt;访问来源&gt;"</span> <span class="string">"文件的下载地址(支持多个链接)"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -c -s10 -k1M -x16 --enable-rpc=<span class="literal">false</span> -o <span class="string">&#x27;要保存的文件名&#x27;</span> --user-agent=<span class="string">&quot;&lt;User-Agent内容&gt;&quot;</span> --referer=<span class="string">&quot;&lt;访问来源&gt;&quot;</span> <span class="string">&quot;文件的下载地址(支持多个链接)&quot;</span></span><br></pre></td></tr></table></figure>
 <p>或</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -c -s10 -k1M -x16 --<span class="built_in">enable</span>-rpc=<span class="literal">false</span> -o <span class="string">'要保存的文件名'</span> --user-agent=<span class="string">"&lt;User-Agent内容&gt;"</span>  --header=<span class="string">"Cookie: &lt;你的cookie内容&gt;"</span> <span class="string">"文件的下载地址(支持多个链接)"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -c -s10 -k1M -x16 --enable-rpc=<span class="literal">false</span> -o <span class="string">&#x27;要保存的文件名&#x27;</span> --user-agent=<span class="string">&quot;&lt;User-Agent内容&gt;&quot;</span>  --header=<span class="string">&quot;Cookie: &lt;你的cookie内容&gt;&quot;</span> <span class="string">&quot;文件的下载地址(支持多个链接)&quot;</span></span><br></pre></td></tr></table></figure>
 <p>替换如上命令里的<code>要保存的文件名</code>、<code>&lt;User-Agent内容&gt;</code> <code>&lt;访问来源&gt;</code>、<code>你的cookie内容</code>、<code>文件的下载地址</code>即可。</p>
 <p>提示：</p>
 <ol>
 <li>对于同时下载多个文件，可以使用<code>--dir &quot;下载路径&quot;</code>代替 <code>-o '要保存的文件名'</code>。</li>
 <li>对于同时下载多个文件，可以指定包含多个文件下载链接的列表文件，如之前的**<code>list.txt</code>**。使用<code>--input-file=list.txt</code>代替<code>&quot;文件的下载地址(支持多个链接)&quot;</code>。</li>
-<li>对于同时下载多个文件且下载链接存在规则性，也可使用<code>-Z -P http://host/XXXX[000-100].ts</code>代替<code>&quot;文件的下载地址(支持多个链接)&quot;</code>。详见：<a href="https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-parameterized-uri" target="_blank" rel="noopener">aria2c:参数化 URI</a></li>
+<li>对于同时下载多个文件且下载链接存在规则性，也可使用<code>-Z -P http://host/XXXX[000-100].ts</code>代替<code>&quot;文件的下载地址(支持多个链接)&quot;</code>。详见：<a target="_blank" rel="noopener" href="https://aria2.github.io/manual/en/html/aria2c.html#cmdoption-parameterized-uri">aria2c:参数化 URI</a></li>
 <li>对于使用 cookie 文件可使用<code>--load-cookies=&lt;cookie 文件&gt;</code>代替<code>--header=&quot;Cookie: &lt;你的cookie内容&gt;&quot;</code>。</li>
 </ol>
 <h2 id="使用-ariang-下载"><a class="markdownIt-Anchor" href="#使用-ariang-下载"></a> 使用 AriaNG 下载</h2>
@@ -286,10 +286,10 @@
 </ul>
 <h2 id="附ffmpeg解码m3u8合并解密ts到mp4"><a class="markdownIt-Anchor" href="#附ffmpeg解码m3u8合并解密ts到mp4"></a> 附:FFmpeg解码M3U8合并解密TS到MP4</h2>
 <blockquote>
-<p>参考：<a href="https://luluit.top/archives/2070.html" target="_blank" rel="noopener">https://luluit.top/archives/2070.html</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://luluit.top/archives/2070.html">https://luluit.top/archives/2070.html</a></p>
 </blockquote>
 <h3 id="ffmpeg安装"><a class="markdownIt-Anchor" href="#ffmpeg安装"></a> FFmpeg安装</h3>
-<p>macOS/Win 下可以去<a href="https://ffmpeg.zeranoe.com/builds/" target="_blank" rel="noopener">这里</a>下载单文件版。当然macOS也可以使用<code>brew</code>安装(依赖包较多)。</p>
+<p>macOS/Win 下可以去<a target="_blank" rel="noopener" href="https://ffmpeg.zeranoe.com/builds/">这里</a>下载单文件版。当然macOS也可以使用<code>brew</code>安装(依赖包较多)。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ffmpeg</span><br></pre></td></tr></table></figure>
 <h3 id="解密合并"><a class="markdownIt-Anchor" href="#解密合并"></a> 解密合并</h3>
 <p>将 m3u8 列表文件（如：index.m3u8）、离线密钥和 ts 文件放在同一目录下，使用<code>ffmpeg</code>命令进行解密合并成单个 mp4文件：</p>
@@ -366,7 +366,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-number">1.</span> <span class="nav-text"> 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视频文件类型"><span class="nav-number">2.</span> <span class="nav-text"> 视频文件类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取下载链接及验证信息"><span class="nav-number">3.</span> <span class="nav-text"> 如何获取下载链接及验证信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取下载链接"><span class="nav-number">3.1.</span> <span class="nav-text"> 获取下载链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取request-headers参数"><span class="nav-number">3.2.</span> <span class="nav-text"> 获取Request Headers参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取ts文件下载链接"><span class="nav-number">3.3.</span> <span class="nav-text"> 获取ts文件下载链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-aria2c-命令行下载"><span class="nav-number">4.</span> <span class="nav-text"> 使用 Aria2c 命令行下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-ariang-下载"><span class="nav-number">5.</span> <span class="nav-text"> 使用 AriaNG 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附ffmpeg解码m3u8合并解密ts到mp4"><span class="nav-number">6.</span> <span class="nav-text"> 附:FFmpeg解码M3U8合并解密TS到MP4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ffmpeg安装"><span class="nav-number">6.1.</span> <span class="nav-text"> FFmpeg安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解密合并"><span class="nav-number">6.2.</span> <span class="nav-text"> 解密合并</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text"> 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text"> 视频文件类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E5%8F%8A%E9%AA%8C%E8%AF%81%E4%BF%A1%E6%81%AF"><span class="nav-number">3.</span> <span class="nav-text"> 如何获取下载链接及验证信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="nav-number">3.1.</span> <span class="nav-text"> 获取下载链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96request-headers%E5%8F%82%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text"> 获取Request Headers参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96ts%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="nav-number">3.3.</span> <span class="nav-text"> 获取ts文件下载链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-aria2c-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text"> 使用 Aria2c 命令行下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ariang-%E4%B8%8B%E8%BD%BD"><span class="nav-number">5.</span> <span class="nav-text"> 使用 AriaNG 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84ffmpeg%E8%A7%A3%E7%A0%81m3u8%E5%90%88%E5%B9%B6%E8%A7%A3%E5%AF%86ts%E5%88%B0mp4"><span class="nav-number">6.</span> <span class="nav-text"> 附:FFmpeg解码M3U8合并解密TS到MP4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ffmpeg%E5%AE%89%E8%A3%85"><span class="nav-number">6.1.</span> <span class="nav-text"> FFmpeg安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E5%90%88%E5%B9%B6"><span class="nav-number">6.2.</span> <span class="nav-text"> 解密合并</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -426,7 +426,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">沙漠之子</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -54,7 +54,7 @@
 <meta property="og:description" content="使用 BCFG 命令管理 UEFI 启动菜单 用于修改 UEFI NVRAM 条目，它能让用户改变启动条目或驱动器选项。 详见：“UEFI Shell Specification 2.0” PDF 文档的83页 (Section 5.3)命令介绍。  查看当前启动条目:  1Shell&gt; bcfg boot dump -v  为 Clover (作为例子) 添加一个启动菜单条目，并在 UE">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-31T00:27:52.000Z">
-<meta property="article:modified_time" content="2020-10-16T02:04:52.282Z">
+<meta property="article:modified_time" content="2020-12-30T07:26:05.082Z">
 <meta property="article:author" content="沙漠之子">
 <meta property="article:tag" content="clover">
 <meta property="article:tag" content="UEFI">
@@ -214,7 +214,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-16 10:04:52" itemprop="dateModified" datetime="2020-10-16T10:04:52+08:00">2020-10-16</time>
+                <time title="修改时间：2020-12-30 15:26:05" itemprop="dateModified" datetime="2020-12-30T15:26:05+08:00">2020-12-30</time>
               </span>
 
           
@@ -229,7 +229,7 @@
 
       
         <h2 id="使用-bcfg-命令管理-uefi-启动菜单"><a class="markdownIt-Anchor" href="#使用-bcfg-命令管理-uefi-启动菜单"></a> 使用 <code>BCFG</code> 命令管理 UEFI 启动菜单</h2>
-<p>用于修改 UEFI NVRAM 条目，它能让用户改变启动条目或驱动器选项。 详见：“<a href="http://www.uefi.org/sites/default/files/resources/UEFI_Shell_Spec_2_0.pdf" target="_blank" rel="noopener">UEFI Shell Specification 2.0</a>” PDF 文档的83页 (Section 5.3)命令介绍。</p>
+<p>用于修改 UEFI NVRAM 条目，它能让用户改变启动条目或驱动器选项。 详见：“<a target="_blank" rel="noopener" href="http://www.uefi.org/sites/default/files/resources/UEFI_Shell_Spec_2_0.pdf">UEFI Shell Specification 2.0</a>” PDF 文档的83页 (Section 5.3)命令介绍。</p>
 <ol>
 <li>查看当前启动条目:</li>
 </ol>
@@ -237,7 +237,7 @@
 <ol start="2">
 <li>为 Clover (作为例子) 添加一个启动菜单条目，并在 UEFI 启动菜单里设置为第1个 (<strong>从0开始计数</strong>) 选项:</li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shell&gt; bcfg boot add 0 fs0:\EFI\CLOVER\CLOVERX64.efi <span class="string">"Clover OS X Boot"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shell&gt; bcfg boot add 0 fs0:\EFI\CLOVER\CLOVERX64.efi <span class="string">&quot;Clover OS X Boot&quot;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>fs0:</code> 映射到 EFI 系统分区，<code>\EFI\CLOVER\CLOVERX64.efi</code> 是要启动的文件。 配合<code>map</code>和<code>ls</code>命令 确定路径。</p>
 </blockquote>
@@ -257,7 +257,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shell&gt; bcfg -? -v -b</span><br></pre></td></tr></table></figure>
 <h3 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献:</h3>
 <ul>
-<li><a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#bcfg" target="_blank" rel="noopener">Archlinux:Unified_Extensible_Firmware_Interface#bcfg</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#bcfg">Archlinux:Unified_Extensible_Firmware_Interface#bcfg</a></li>
 </ul>
 
     </div>
@@ -326,7 +326,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-bcfg-命令管理-uefi-启动菜单"><span class="nav-number">1.</span> <span class="nav-text"> 使用 BCFG 命令管理 UEFI 启动菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">1.1.</span> <span class="nav-text"> 参考文献:</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-bcfg-%E5%91%BD%E4%BB%A4%E7%AE%A1%E7%90%86-uefi-%E5%90%AF%E5%8A%A8%E8%8F%9C%E5%8D%95"><span class="nav-number">1.</span> <span class="nav-text"> 使用 BCFG 命令管理 UEFI 启动菜单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">1.1.</span> <span class="nav-text"> 参考文献:</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,7 +386,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">沙漠之子</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.2.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
