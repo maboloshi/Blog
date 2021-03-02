@@ -2,6 +2,14 @@ name: Hexo CICD
 
 on:
   workflow_dispatch:
+  pull_request:
+      branches:
+      - hexo
+      paths:
+      - 'source/**'
+      - 'themes/**'
+      - '_config.yml'
+      - 'package.json'
   push:
       branches:
       - hexo
@@ -9,6 +17,7 @@ on:
       - 'source/**'
       - 'themes/**'
       - '_config.yml'
+      - 'package.json'
 
 jobs:
   build:
