@@ -5,36 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/Blog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/Blog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/Blog/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.motreen.ml","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"maboloshi.github.io","root":"/Blog/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="使用 BCFG 命令管理 UEFI 启动菜单 用于修改 UEFI NVRAM 条目，它能让用户改变启动条目或驱动器选项。 详见：“UEFI Shell Specification 2.0” PDF 文档的83页 (Section 5.3)命令介绍。  查看当前启动条目:  1Shell&gt; bcfg boot dump -v  为 Clover (作为例子) 添加一个启动菜单条目，并在 UE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 &#96;BCFG&#96; 命令管理 UEFI 启动菜单">
-<meta property="og:url" content="https://blog.motreen.ml/posts/25284/index.html">
+<meta property="og:url" content="https://maboloshi.github.io/Blog/posts/25284/index.html">
 <meta property="og:site_name" content="春">
 <meta property="og:description" content="使用 BCFG 命令管理 UEFI 启动菜单 用于修改 UEFI NVRAM 条目，它能让用户改变启动条目或驱动器选项。 详见：“UEFI Shell Specification 2.0” PDF 文档的83页 (Section 5.3)命令介绍。  查看当前启动条目:  1Shell&gt; bcfg boot dump -v  为 Clover (作为例子) 添加一个启动菜单条目，并在 UE">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-31T00:27:52.000Z">
-<meta property="article:modified_time" content="2021-11-01T04:46:02.265Z">
+<meta property="article:modified_time" content="2021-11-01T05:45:13.742Z">
 <meta property="article:author" content="沙漠之子">
 <meta property="article:tag" content="clover">
 <meta property="article:tag" content="UEFI">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.motreen.ml/posts/25284/">
+<link rel="canonical" href="https://maboloshi.github.io/Blog/posts/25284/">
 
 
 <script id="page-configurations">
@@ -78,7 +78,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="春" type="application/atom+xml">
+<link rel="alternate" href="/Blog/atom.xml" title="春" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -97,7 +97,7 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/Blog/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">春</h1>
       <span class="logo-line-after"><i></i></span>
@@ -117,22 +117,22 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+    <a href="/Blog/" rel="section"><i class="home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+    <a href="/Blog/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+    <a href="/Blog/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+    <a href="/Blog/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -163,10 +163,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.motreen.ml/posts/25284/">
+    <link itemprop="mainEntityOfPage" href="https://maboloshi.github.io/Blog/posts/25284/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="沙漠之子">
       <meta itemprop="description" content="">
     </span>
@@ -193,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-01 12:46:02" itemprop="dateModified" datetime="2021-11-01T12:46:02+08:00">2021-11-01</time>
+                <time title="修改时间：2021-11-01 13:45:13" itemprop="dateModified" datetime="2021-11-01T13:45:13+08:00">2021-11-01</time>
               </span>
 
           
@@ -247,8 +247,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/clover/" rel="tag"># clover</a>
-              <a href="/tags/UEFI/" rel="tag"># UEFI</a>
+              <a href="/Blog/tags/clover/" rel="tag"># clover</a>
+              <a href="/Blog/tags/UEFI/" rel="tag"># UEFI</a>
           </div>
 
         
@@ -257,7 +257,7 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/49311/" rel="prev" title="macOS下 给aria2 RPC添加一个下载通知">
+    <a href="/Blog/posts/49311/" rel="prev" title="macOS下 给aria2 RPC添加一个下载通知">
       <i class="fa fa-chevron-left"></i> macOS下 给aria2 RPC添加一个下载通知
     </a></div>
       <div class="post-nav-item"></div>
@@ -338,14 +338,14 @@
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/Blog/archives/">
         
           <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/Blog/tags/">
           
         <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
@@ -357,7 +357,7 @@
         <a href="https://github.com/maboloshi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;maboloshi" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="rss fa-fw"></i>RSS</a>
+        <a href="/Blog/atom.xml" title="RSS → &#x2F;atom.xml"><i class="rss fa-fw"></i>RSS</a>
       </span>
   </div>
 
@@ -405,19 +405,19 @@
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/Blog/lib/anime.min.js"></script>
+  <script src="/Blog/lib/velocity/velocity.min.js"></script>
+  <script src="/Blog/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/js/utils.js"></script>
+<script src="/Blog/js/utils.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
+<script src="/Blog/js/motion.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/Blog/js/schemes/pisces.js"></script>
+
+
+<script src="/Blog/js/next-boot.js"></script>
 
 
 
