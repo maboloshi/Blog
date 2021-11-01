@@ -13,38 +13,12 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('https://blog.motreen.ml').hostname,
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"default"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.motreen.ml","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="某些网站的视频文件即使获取了下载链接也是无法使用第三方工具下载，主要原因是服务器端需对Cookie或者referer等验证，故使用第三方下载工具时需要提交该信息。  工具  chrome浏览器 aria2 AriaNG: 一个aria2 web UI   视频文件类型 一般使用 HTML5 技术在线加载的视频，有 2 种加载形式：  单独文件加载：单独的一个完整视频文件（后缀名一般为*.mp4)">
 <meta property="og:type" content="article">
@@ -56,7 +30,7 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/7850715/74332438-9c865c00-4d8d-11ea-998f-65ed6d71e799.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/7850715/74332429-998b6b80-4d8d-11ea-80ae-807bbcac1c42.png">
 <meta property="article:published_time" content="2020-02-12T12:00:13.000Z">
-<meta property="article:modified_time" content="2021-09-08T00:54:47.922Z">
+<meta property="article:modified_time" content="2021-11-01T04:46:02.265Z">
 <meta property="article:author" content="沙漠之子">
 <meta property="article:tag" content="aria2">
 <meta property="article:tag" content="ffmpeg">
@@ -70,10 +44,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -117,17 +90,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">春</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -135,35 +97,53 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">春</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -179,14 +159,13 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.motreen.ml/posts/49934/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -206,7 +185,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -214,10 +193,10 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-08 08:54:47" itemprop="dateModified" datetime="2021-09-08T08:54:47+08:00">2021-09-08</time>
+                <time title="修改时间：2021-11-01 12:46:02" itemprop="dateModified" datetime="2021-11-01T12:46:02+08:00">2021-11-01</time>
               </span>
 
           
@@ -255,12 +234,12 @@
 <img src="https://user-images.githubusercontent.com/7850715/74332429-998b6b80-4d8d-11ea-80ae-807bbcac1c42.png" alt="获取RequestHeaders 参数" /></p>
 <h3 id="获取ts文件下载链接"><a class="markdownIt-Anchor" href="#获取ts文件下载链接"></a> 获取ts文件下载链接</h3>
 <p>使用文本编辑器打开<code>m3u8列表文件</code>，删除<code>#</code>开头的行, 并补全<code>ts文件</code>下载链接复制备用，也可另存为列表文件**<code>list.txt</code><strong>，原<code>m3u8列表文件</code>在后续的文件解密合并时还需用到，也可重命名为</strong><code>index.m3u8</code>**。</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x613694b311fb436b16f58b8c8f741ca2</span><br><span class="line">#EXTINF:16.733333,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x005825f743583155e78af94c6c364190</span><br><span class="line">#EXTINF:3.666667,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0xb8941ace1e79b5c0acf7d81ec3924226</span><br><span class="line">#EXTINF:17.866667,</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x613694b311fb436b16f58b8c8f741ca2</span><br><span class="line">#EXTINF:16.733333,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x005825f743583155e78af94c6c364190</span><br><span class="line">#EXTINF:3.666667,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0xb8941ace1e79b5c0acf7d81ec3924226</span><br><span class="line">#EXTINF:17.866667,</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
 <p>补全整理后</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>列表文件中存在类似信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#EXT-X-KEY:METHOD&#x3D;AES-128,URI&#x3D;&quot;https:&#x2F;&#x2F;.....&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;https://.....&quot;</span><br></pre></td></tr></table></figure>
 <p>则ts 文件的密钥文件为这个<code>URI</code>链接的文件中，如果后续使用 <code>ffmpeg</code>命令进行解密时能自动获取则不需要下载，否则请提前下载并将<code>URI</code>内容改成本地密钥文件路径</p>
 </blockquote>
 <h2 id="使用-aria2c-命令行下载"><a class="markdownIt-Anchor" href="#使用-aria2c-命令行下载"></a> 使用 Aria2c 命令行下载</h2>
@@ -330,7 +309,6 @@
   
   
 
-  </div>
 
 
           </div>
@@ -342,6 +320,28 @@
   </div>
   
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -394,10 +394,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/maboloshi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;maboloshi" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/maboloshi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;maboloshi" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="rss fa-fw"></i>RSS</a>
       </span>
   </div>
 
@@ -417,19 +417,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">沙漠之子</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
@@ -441,7 +440,6 @@
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -465,7 +463,6 @@
 
 
   
-
 
 
 
