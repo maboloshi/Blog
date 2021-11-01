@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "4.2.1"
+    "version": "5.4.0"
   },
   "scripts": {
     "build": "hexo generate",
     "deploy": "hexo deploy"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10",
+    "cheerio": "^0.22.0",
     "hexo": "^5.4.0",
     "hexo-abbrlink": "^2.2.1",
     "hexo-cli": "^4.3.0",
