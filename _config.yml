@@ -80,17 +80,6 @@ deploy:
   message: "GitHub CI Auto Builder at {{ now('YYYY-MM-DD HH:mm:ss Z') }}"
 
 # Comments Settings
-# Demo: https://utteranc.es/  http://trumandu.github.io/about/
-# plugins: theme-next/hexo-next-utteranc
-utteranc:
-  enable: true
-  repo: maboloshi/Blog
-  pathname: pathname
-  # theme: github-light,github-dark,github-dark-orange
-  theme: github-light
-  cdn: https://utteranc.es/client.js
-  # If you want to modify priority, please config in **hexo**
-  #priority:
 
 markdown_it_plus:
     highlight: true
