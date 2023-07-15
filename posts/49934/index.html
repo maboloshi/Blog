@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/Blog/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/Blog/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/Blog/images/favicon-16x16-next.png">
@@ -13,14 +14,15 @@
 <link rel="stylesheet" href="/Blog/css/main.css">
 
 
-<link rel="stylesheet" href="/Blog/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"maboloshi.github.io","root":"/Blog/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"hide","offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/orange/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-  <meta name="description" content="某些网站的视频文件即使获取了下载链接也是无法使用第三方工具下载，主要原因是服务器端需对Cookie或者referer等验证，故使用第三方下载工具时需要提交该信息。  工具  chrome浏览器 aria2 AriaNG: 一个aria2 web UI   视频文件类型 一般使用 HTML5 技术在线加载的视频，有 2 种加载形式：  单独文件加载：单独的一个完整视频文件（后缀名一般为*.mp4)">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"maboloshi.github.io","root":"/Blog/","images":"/Blog/images","scheme":"Pisces","darkmode":true,"version":"8.17.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":true,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/Blog/js/config.js"></script>
+
+    <meta name="description" content="某些网站的视频文件即使获取了下载链接也是无法使用第三方工具下载，主要原因是服务器端需对Cookie或者referer等验证，故使用第三方下载工具时需要提交该信息。  工具  chrome浏览器 aria2 AriaNG: 一个aria2 web UI   视频文件类型 一般使用 HTML5 技术在线加载的视频，有 2 种加载形式：  单独文件加载：单独的一个完整视频文件（后缀名一般为*.mp4)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用aria2下载视频文件">
 <meta property="og:url" content="https://maboloshi.github.io/Blog/posts/49934/index.html">
@@ -30,28 +32,25 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/7850715/74332438-9c865c00-4d8d-11ea-998f-65ed6d71e799.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/7850715/74332429-998b6b80-4d8d-11ea-80ae-807bbcac1c42.png">
 <meta property="article:published_time" content="2020-02-12T12:00:13.000Z">
-<meta property="article:modified_time" content="2022-02-07T06:26:04.746Z">
+<meta property="article:modified_time" content="2023-07-15T01:45:09.012Z">
 <meta property="article:author" content="沙漠之子">
 <meta property="article:tag" content="aria2">
 <meta property="article:tag" content="ffmpeg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/7850715/74332438-9c865c00-4d8d-11ea-998f-65ed6d71e799.png">
 
+
 <link rel="canonical" href="https://maboloshi.github.io/Blog/posts/49934/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>使用aria2下载视频文件 | 春</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://maboloshi.github.io/Blog/posts/49934/","path":"posts/49934/","title":"使用aria2下载视频文件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用aria2下载视频文件 | 春</title>
   
+
+
 
 
 
@@ -59,147 +58,160 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/Blog/css/noscript.css">
+  </noscript>
 <link rel="alternate" href="/Blog/atom.xml" title="春" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/Blog/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">春</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">春</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/Blog/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/Blog/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/Blog/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/Blog/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/Blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/Blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
   </ul>
 </nav>
 
 
 
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text"> 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text"> 视频文件类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E5%8F%8A%E9%AA%8C%E8%AF%81%E4%BF%A1%E6%81%AF"><span class="nav-number">3.</span> <span class="nav-text"> 如何获取下载链接及验证信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="nav-number">3.1.</span> <span class="nav-text"> 获取下载链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96request-headers%E5%8F%82%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text"> 获取Request Headers参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96ts%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="nav-number">3.3.</span> <span class="nav-text"> 获取ts文件下载链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-aria2c-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text"> 使用 Aria2c 命令行下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ariang-%E4%B8%8B%E8%BD%BD"><span class="nav-number">5.</span> <span class="nav-text"> 使用 AriaNG 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84ffmpeg%E8%A7%A3%E7%A0%81m3u8%E5%90%88%E5%B9%B6%E8%A7%A3%E5%AF%86ts%E5%88%B0mp4"><span class="nav-number">6.</span> <span class="nav-text"> 附:FFmpeg解码M3U8合并解密TS到MP4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ffmpeg%E5%AE%89%E8%A3%85"><span class="nav-number">6.1.</span> <span class="nav-text"> FFmpeg安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E5%90%88%E5%B9%B6"><span class="nav-number">6.2.</span> <span class="nav-text"> 解密合并</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">沙漠之子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/Blog/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/Blog/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/maboloshi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;maboloshi" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
+        </div>
+      </div>
+    </div>
 
     
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://maboloshi.github.io/Blog/posts/49934/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Blog/images/avatar.gif">
       <meta itemprop="name" content="沙漠之子">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="春">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用aria2下载视频文件 | 春">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           使用aria2下载视频文件
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-12 20:00:13" itemprop="dateCreated datePublished" datetime="2020-02-12T20:00:13+08:00">2020-02-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-07 14:26:04" itemprop="dateModified" datetime="2022-02-07T14:26:04+08:00">2022-02-07</time>
-              </span>
+      <time title="创建时间：2020-02-12 20:00:13" itemprop="dateCreated datePublished" datetime="2020-02-12T20:00:13+08:00">2020-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-15 09:45:09" itemprop="dateModified" datetime="2023-07-15T09:45:09+08:00">2023-07-15</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -207,10 +219,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>某些网站的视频文件即使获取了下载链接也是无法使用第三方工具下载，主要原因是服务器端需对<code>Cookie</code>或者<code>referer</code>等验证，故使用第三方下载工具时需要提交该信息。</p>
+    <div class="post-body" itemprop="articleBody"><p>某些网站的视频文件即使获取了下载链接也是无法使用第三方工具下载，主要原因是服务器端需对<code>Cookie</code>或者<code>referer</code>等验证，故使用第三方下载工具时需要提交该信息。</p>
 <h2 id="工具"><a class="markdownIt-Anchor" href="#工具"></a> 工具</h2>
 <ul>
 <li>chrome浏览器</li>
@@ -224,7 +233,7 @@
 <li>多片段文件加载：一般使用后缀名为<code>*.m3u8</code> 的列表文件，分别按进度依次载入数个加密或未加密的<code>*.ts</code>文件</li>
 </ul>
 <h2 id="如何获取下载链接及验证信息"><a class="markdownIt-Anchor" href="#如何获取下载链接及验证信息"></a> 如何获取下载链接及验证信息</h2>
-<p>浏览器打开视频页面，按下F12进入开发者工具，刷新页面，可以在<code>network</code>标签页看到访问的元素请求。在<code>Fiter 筛选栏</code>输入关键词如<code>mp4</code>或<code>m3u8</code></p>
+<p>浏览器打开视频页面，按下F12进入开发者工具，刷新页面，可以在<code>network</code>标签页看到访问的元素请求。在<code> Fiter 筛选栏</code>输入关键词如<code>mp4</code>或<code>m3u8</code></p>
 <p>以<code>*.m3u8</code>列表文件为例</p>
 <h3 id="获取下载链接"><a class="markdownIt-Anchor" href="#获取下载链接"></a> 获取下载链接</h3>
 <p>在左侧找到目标文件，鼠标选中，在右侧详情栏<code>General</code>–&gt;<code>Request URL</code>便是下载链接。复制链接备用，对于 m3u8列表文件，右键<code>转到</code>直接通过浏览器下载备用。<br />
@@ -234,9 +243,9 @@
 <img src="https://user-images.githubusercontent.com/7850715/74332429-998b6b80-4d8d-11ea-80ae-807bbcac1c42.png" alt="获取RequestHeaders 参数" /></p>
 <h3 id="获取ts文件下载链接"><a class="markdownIt-Anchor" href="#获取ts文件下载链接"></a> 获取ts文件下载链接</h3>
 <p>使用文本编辑器打开<code>m3u8列表文件</code>，删除<code>#</code>开头的行, 并补全<code>ts文件</code>下载链接复制备用，也可另存为列表文件**<code>list.txt</code><strong>，原<code>m3u8列表文件</code>在后续的文件解密合并时还需用到，也可重命名为</strong><code>index.m3u8</code>**。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x613694b311fb436b16f58b8c8f741ca2</span><br><span class="line">#EXTINF:16.733333,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x005825f743583155e78af94c6c364190</span><br><span class="line">#EXTINF:3.666667,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0xb8941ace1e79b5c0acf7d81ec3924226</span><br><span class="line">#EXTINF:17.866667,</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-VERSION:3</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXT-X-ALLOW-CACHE:YES</span><br><span class="line">#EXT-X-TARGETDURATION:18</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x613694b311fb436b16f58b8c8f741ca2</span><br><span class="line">#EXTINF:16.733333,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0x005825f743583155e78af94c6c364190</span><br><span class="line">#EXTINF:3.666667,</span><br><span class="line">/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">#EXT-X-KEY:METHOD=QINIU-PROTECTION-10,IV=0xb8941ace1e79b5c0acf7d81ec3924226</span><br><span class="line">#EXTINF:17.866667,</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
 <p>补全整理后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000000.ts</span><br><span class="line">https://xxxx/xxxx/5t2z9mIR2ZKG20c7w5PeHsrDNjA=/lqn2o_WGxPIjDV_idXAR9c-q6DFM/000001.ts</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>列表文件中存在类似信息</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#EXT-X-KEY:METHOD=AES-128,URI=&quot;https://.....&quot;</span><br></pre></td></tr></table></figure>
@@ -282,7 +291,7 @@
     
     
 
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/Blog/tags/aria2/" rel="tag"># aria2</a>
               <a href="/Blog/tags/ffmpeg/" rel="tag"># ffmpeg</a>
@@ -290,176 +299,70 @@
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/Blog/posts/35722/" rel="prev" title="GitHub Actions自动部署Hexo博客">
-      <i class="fa fa-chevron-left"></i> GitHub Actions自动部署Hexo博客
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/Blog/posts/49311/" rel="next" title="macOS下 给aria2 RPC添加一个下载通知">
-      macOS下 给aria2 RPC添加一个下载通知 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Blog/posts/35722/" rel="prev" title="GitHub Actions自动部署Hexo博客">
+                  <i class="fa fa-chevron-left"></i> GitHub Actions自动部署Hexo博客
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Blog/posts/49311/" rel="next" title="macOS下 给aria2 RPC添加一个下载通知">
+                  macOS下 给aria2 RPC添加一个下载通知 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    
-  
-  <div class="comments">
-  <script src="https://utteranc.es/client.js" repo="maboloshi/Blog" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
-  </div>
-  
-  
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text"> 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text"> 视频文件类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E5%8F%8A%E9%AA%8C%E8%AF%81%E4%BF%A1%E6%81%AF"><span class="nav-number">3.</span> <span class="nav-text"> 如何获取下载链接及验证信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="nav-number">3.1.</span> <span class="nav-text"> 获取下载链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96request-headers%E5%8F%82%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text"> 获取Request Headers参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96ts%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="nav-number">3.3.</span> <span class="nav-text"> 获取ts文件下载链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-aria2c-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text"> 使用 Aria2c 命令行下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ariang-%E4%B8%8B%E8%BD%BD"><span class="nav-number">5.</span> <span class="nav-text"> 使用 AriaNG 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84ffmpeg%E8%A7%A3%E7%A0%81m3u8%E5%90%88%E5%B9%B6%E8%A7%A3%E5%AF%86ts%E5%88%B0mp4"><span class="nav-number">6.</span> <span class="nav-text"> 附:FFmpeg解码M3U8合并解密TS到MP4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ffmpeg%E5%AE%89%E8%A3%85"><span class="nav-number">6.1.</span> <span class="nav-text"> FFmpeg安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E5%90%88%E5%B9%B6"><span class="nav-number">6.2.</span> <span class="nav-text"> 解密合并</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">沙漠之子</p>
-  <div class="site-description" itemprop="description"></div>
+    </footer>
+  </article>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/Blog/archives/">
-        
-          <span class="site-state-item-count">6</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/Blog/tags/">
-          
-        <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
 </div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/maboloshi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;maboloshi" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/Blog/atom.xml" title="RSS → &#x2F;atom.xml"><i class="rss fa-fw"></i>RSS</a>
-      </span>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">沙漠之子</span>
   </div>
-
-
-
-      </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+  </footer>
 
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">沙漠之子</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
   </div>
 
-        
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
 
   
-  <script src="/Blog/lib/anime.min.js"></script>
-  <script src="/Blog/lib/velocity/velocity.min.js"></script>
-  <script src="/Blog/lib/velocity/velocity.ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/Blog/js/comments.js"></script><script src="/Blog/js/utils.js"></script><script src="/Blog/js/motion.js"></script><script src="/Blog/js/next-boot.js"></script><script src="/Blog/js/pjax.js"></script>
 
-<script src="/Blog/js/utils.js"></script>
-
-<script src="/Blog/js/motion.js"></script>
+  
 
 
-<script src="/Blog/js/schemes/pisces.js"></script>
 
 
-<script src="/Blog/js/next-boot.js"></script>
-
-
+  <script src="/Blog/js/third-party/pace.js"></script>
 
 
   
@@ -467,22 +370,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"maboloshi/Blog","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/Blog/js/third-party/comments/utterances.js"></script>
 
 </body>
 </html>
