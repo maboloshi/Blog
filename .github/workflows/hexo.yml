@@ -58,8 +58,8 @@ jobs:
 
       - name: Get Time
         id: time
-          run: |
-            echo "time=$(TZ=UTC+8 date +'%Y-%m-%d %T GMT%:z')" >> $GITHUB_OUTPUT
+        run: |
+          echo "time=$(TZ=UTC+8 date +'%Y-%m-%d %T GMT%:z')" >> $GITHUB_OUTPUT
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
