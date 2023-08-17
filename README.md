@@ -6,8 +6,7 @@
 
 使用 Markdown 书写，用 [Hexo](https://hexo.io/) 生成静态网页，并用 `Github CI` 部署。
 
-- `master` 分支: 静态页面，由`Github CI`部署。
-- `hexo` 分支: 原始数据及配置。
+- `main` 分支: 原始数据及配置。
 
 主题: [NexT](https://github.com/theme-next/hexo-theme-next)   
 评论插件: [utterances](https://utteranc.es), 基于 github issues.
