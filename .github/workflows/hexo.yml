@@ -36,11 +36,11 @@ concurrency:
 jobs:
   build:
     name: Build on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [16]
-    runs-on: ${{ matrix.os }}
+        node_version: ['16']
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
 
     steps:
