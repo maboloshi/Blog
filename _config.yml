@@ -76,7 +76,7 @@ theme: next
 deploy:
   type: git
   repo: git@github.com:maboloshi/Blog.git
-  branch: master
+  branch: gh-pages
   message: "GitHub CI Auto Builder at {{ now('YYYY-MM-DD HH:mm:ss Z') }}"
 
 # Comments Settings
