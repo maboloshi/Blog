@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       
       - name: 'Avoid Github Workflow being suspended'
         run: echo $(cat /proc/sys/kernel/random/uuid) > KeepAlive.txt
@@ -22,7 +22,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add .
           git diff --quiet && git diff --staged --quiet || git commit -am '「GitHub Action」保活成功！'
-          echo ::set-output name=status::success
+          echo "status=success" >> $GITHUB_OUTPUT
            
       - name: 'GitHub Push'
         if: steps.commit.output.status != 'success'
