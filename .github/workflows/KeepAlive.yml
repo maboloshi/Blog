@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: 'Avoid Github Workflow being suspended'
         run: echo $(cat /proc/sys/kernel/random/uuid) > KeepAlive.txt
