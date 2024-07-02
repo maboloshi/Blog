@@ -32,7 +32,7 @@ jobs:
     - name: Update dependencies
       uses: taichi/actions-package-update@master
       env:
-        AUTHOR_EMAIL: '${{ steps.get-user-id.outputs.user-id }}+${{ steps.generate-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
+        AUTHOR_EMAIL: '${{ steps.get-user-id.outputs.user-id }}+${{ steps.generate-token.outputs.app-slug }}[bot]@users.noreply.github.com'
         AUTHOR_NAME: '${{ steps.generate-token.outputs.app-slug }}[bot]'
         EXECUTE: "true"
         GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
