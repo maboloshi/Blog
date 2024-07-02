@@ -10,13 +10,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
-    - uses: taichi/actions-package-update@master
+    - name: Generate a token
+      uses: actions/create-github-app-token@v1
+      id: generate-token
+      with:
+        app-id: ${{ vars.APP_ID }}
+        private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+    - name: Get GitHub App User ID
+      id: get-user-id
+      run: echo "user-id=$(gh api "/users/${{ steps.generate-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
       env:
-        AUTHOR_EMAIL: 7850715+maboloshi@users.noreply.github.com
-        AUTHOR_NAME: maboloshi
+        GH_TOKEN: ${{ steps.generate-token.outputs.token }}
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Update dependencies
+      uses: taichi/actions-package-update@master
+      env:
+        AUTHOR_EMAIL: '${{ steps.get-user-id.outputs.user-id }}+${{ steps.generate-token.outputs.app-slug }}[bot]@users.noreply.github.com>'
+        AUTHOR_NAME: '${{ steps.generate-token.outputs.app-slug }}[bot]'
         EXECUTE: "true"
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         LOG_LEVEL: debug
       with:
         args: -u --packageFile package.json --loglevel verbose
