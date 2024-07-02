@@ -8,6 +8,7 @@ jobs:
   update-deps:
     name: Update Node dependencies
     runs-on: ubuntu-latest
+    environment: github-pages
 
     steps:
     - name: Generate a token
