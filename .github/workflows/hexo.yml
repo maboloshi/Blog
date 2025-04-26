@@ -40,7 +40,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: ['16']
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
 
     steps:
@@ -52,7 +51,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: 'latest'
           cache: 'npm'
 
       - name: Setup Pages
