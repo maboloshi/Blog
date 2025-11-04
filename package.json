@@ -25,7 +25,7 @@
     "@reimujs/hexo-renderer-markdown-it-plus": "git+https://github.com/maboloshi/hexo-renderer-markdown-it-plus.git",
     "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-next": "^8.25.0",
+    "hexo-theme-next": "^8.26.0",
     "markdown-it-alerts": "^0.1.0",
     "markdown-it-imsize": "^2.0.1",
     "markdown-it-regexp": "^0.4.0",
